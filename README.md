@@ -280,6 +280,25 @@ Your pipeline must include these stages:
      - Instructions for contributors
      - How to run tests locally before pushing
 
+## CI/CD
+
+![CI](https://github.com/<OWNER>/<REPO>/actions/workflows/ci.yml/badge.svg)
+
+### What runs on every push / PR
+Our GitHub Actions pipeline runs:
+- Lint: `npm run lint`
+- Format check: `npm run format:check`
+- E2E tests: `npm run test:e2e`
+- Docker build (and pushes to GHCR on `main`/`master`)
+
+### How to run locally before pushing
+```bash
+npm ci
+npm run lint
+npm run format:check
+npm run test:e2e
+
+
 ##### Example: GitHub Actions (Reference)
 
 A basic GitHub Actions workflow is already provided at `.github/workflows/ci.yml`. You may:
